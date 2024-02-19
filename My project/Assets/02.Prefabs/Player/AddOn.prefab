@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 4017612665058923783}
   m_Layer: 6
   m_Name: AddOn
-  m_TagString: PlayerBullet
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -47,8 +47,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f37d11f649fbfd46b1ddbaab7edd733, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 4832912147541228906, guid: 57444ee7e571c2140840c9041057dc9d, type: 3}
-  FollowTargetTransform: {fileID: 0}
   bulletPrefab: {fileID: 4832912147541228906, guid: 57444ee7e571c2140840c9041057dc9d, type: 3}
   bulletSpeed: 40
   ShootCycleTime: 0.5
