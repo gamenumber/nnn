@@ -12,4 +12,8 @@ public class BossB : BossA
 		
 	}
 
+	public override void Pattern8()
+	{
+
+	}
 }

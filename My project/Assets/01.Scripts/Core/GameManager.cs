@@ -13,12 +13,28 @@ public class GameManager : MonoBehaviour
 	public MapManager MapManager;
 	public EnemySpawnManager EnemySpawnManager;
 	public ItemManager ItemManager;
+	public SoundManager SoundManager;
 
 	public Canvas StageResultCanvas;
 	public TMP_Text CurrentScoreText;
 	public TMP_Text TimeText;
 
 	[HideInInspector] public bool bStageCleared = false;
+
+	void Start()
+	{
+		SoundManager.instance.PlayBGM("BGM1");
+		if (MapManager)
+			MapManager.Init(this);
+
+		if (EnemySpawnManager)
+			EnemySpawnManager.Init(this);
+
+		if (SoundManager)
+			SoundManager.Init(this);
+
+	}
+
 
 	private void Awake()
 	{
@@ -33,16 +49,6 @@ public class GameManager : MonoBehaviour
 	public PlayerCharacter GetPlayerCharacter()
 	{
 		return GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerCharacter>();
-	}
-
-	void Start()
-	{
-		if(MapManager)
-		MapManager.Init(this);
-
-		if(EnemySpawnManager)
-			EnemySpawnManager.Init(this);
-		
 	}
 
 	public void InitInstance()
@@ -68,6 +74,7 @@ public class GameManager : MonoBehaviour
 
 	public void StageClear()
 	{
+		SoundManager.instance.PlaySFX("StageClear");
 		AddScore(500);
 
 		float gameStartTime = GameInstance.instance.GameStartTime;

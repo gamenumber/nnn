@@ -60,9 +60,19 @@ public class PlayerCharacter : MonoBehaviour
 
 	public void DeadProcess()
 	{
+
+		SoundManager.instance.PlaySFX("PlayerDie");
+		StartCoroutine(DelayTime());
+
+	}
+
+	IEnumerator DelayTime()
+	{
+		yield return new WaitForSeconds(2f);
 		Destroy(gameObject);
 		SceneManager.LoadScene("MainMenu");
 		GameInstance.instance = null;
+		yield return null;
 	}
 
 	private void Update()
@@ -136,6 +146,7 @@ public class PlayerCharacter : MonoBehaviour
 			if (Skills[skillType].IsAvailable())
 			{
 				Skills[skillType].Activate();
+			
 			}
 		}
 	}
@@ -168,6 +179,7 @@ public class PlayerCharacter : MonoBehaviour
 		BaseItem item = collision.GetComponent<BaseItem>();
 		if (item != null)
 		{
+			SoundManager.instance.PlaySFX("Itempickup");
 			item.OnGetItem(this);
 			Destroy(collision.gameObject);
 		}

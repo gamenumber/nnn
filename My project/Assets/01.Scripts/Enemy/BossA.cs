@@ -71,7 +71,9 @@ public class BossA : MonoBehaviour
 			case 6:
 				Pattern7();  // 만약 인덱스가 3이면 Pattern6 함수를 실행시킴
 				break;
-			
+			case 7:
+				Pattern8();  // 만약 인덱스가 3이면 Pattern6 함수를 실행시킴
+				break;
 		}
 	}
 
@@ -266,7 +268,12 @@ public class BossA : MonoBehaviour
 
 	}
 
-	
+	public virtual void Pattern8()
+	{
+
+	}
+
+
 	private Vector3 PlayerPosition()
 	{
 		return GameManager.Instance.GetPlayerCharacter().transform.position; // GameManager에 인스턴스하여 Player의 위치를 가져옴

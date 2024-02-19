@@ -76,6 +76,7 @@ GameObject:
   - component: {fileID: 8958345985711790399}
   - component: {fileID: 8433019187120845851}
   - component: {fileID: 2835076414480822031}
+  - component: {fileID: 4746585156413560582}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -117,6 +118,7 @@ MonoBehaviour:
   MapManager: {fileID: 7669141421577277726}
   EnemySpawnManager: {fileID: 8958345985711790399}
   ItemManager: {fileID: 8433019187120845851}
+  SoundManager: {fileID: 4746585156413560582}
   StageResultCanvas: {fileID: 0}
   CurrentScoreText: {fileID: 0}
   TimeText: {fileID: 0}
@@ -205,6 +207,39 @@ MonoBehaviour:
   - {fileID: 8106229338805678856}
   - {fileID: 3147619274906973571}
   meteorPrefab: {fileID: 3997805535375438398, guid: e8b6f2c7567bcea41ad44bf6f6d7c2a0, type: 3}
+--- !u!114 &4746585156413560582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1922534912248649262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 58e12c6de02842249aeab5b3cb0ebc8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SFXSounds:
+  - Name: Hit
+    Clip: {fileID: 8300000, guid: 1de1e8a440c7147a8bc721e7e0522d0e, type: 3}
+  - Name: Explosion
+    Clip: {fileID: 8300000, guid: d4ac7e224c30c4c0793c7a9560009136, type: 3}
+  - Name: Itempickup
+    Clip: {fileID: 8300000, guid: bfc065f505ca54117b47d3a45f758aa3, type: 3}
+  - Name: StageClear
+    Clip: {fileID: 8300000, guid: 524fb3698f9864ea4a953e57aefc11ad, type: 3}
+  - Name: Shoot
+    Clip: {fileID: 8300000, guid: 9a0f09a1a65c449288e7b9593b109cbf, type: 3}
+  BgmSounds:
+  - Name: BGM1
+    Clip: {fileID: 8300000, guid: 1c64bd3a6ecc5c4409e8aa874c7315bf, type: 3}
+  AudioSourceBgm: {fileID: 0}
+  AudioSourceSFX:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
 --- !u!1 &5861518472419572002
 GameObject:
   m_ObjectHideFlags: 0

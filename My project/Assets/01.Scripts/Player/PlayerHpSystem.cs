@@ -37,6 +37,7 @@ public class PlayerHpSystem : MonoBehaviour
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
 		{
+			SoundManager.instance.PlaySFX("Hit");
 			Health -= 1;
 			StartCoroutine(HitFlick());
 			Destroy(collision.gameObject);
@@ -49,6 +50,7 @@ public class PlayerHpSystem : MonoBehaviour
 
 		if (collision.gameObject.CompareTag("EnemyBullet"))
 		{
+			SoundManager.instance.PlaySFX("Hit");
 			Health -= 1;
 			StartCoroutine(HitFlick());
 			Destroy(collision.gameObject);

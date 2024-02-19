@@ -17,6 +17,7 @@ public class Level1Weapon : Weapon
 		// 레벨 1 무기의 특정 동작
 		Vector3 position = playerCharacter.transform.position;
 		primarySkill.ShootProjectile(position, Vector3.up * 3);
+		
 	}
 }
 
@@ -34,6 +35,7 @@ public class Level2Weapon : Weapon
 			primarySkill.ShootProjectile(position, Vector3.up * 3);
 			position.x += 0.2f;
 		}
+		
 	}
 }
 
@@ -48,6 +50,8 @@ public class Level3Weapon : Weapon
 		primarySkill.ShootProjectile(position, Vector3.up * 3);
 		primarySkill.ShootProjectile(position, new Vector3(0.3f, 1, 0) * 3);
 		primarySkill.ShootProjectile(position, new Vector3(-0.3f, 1, 0) * 3);
+
+		
 	}
 }
 
@@ -69,6 +73,8 @@ public class Level4Weapon : Weapon
 		Vector3 position2 = playerCharacter.transform.position;
 		primarySkill.ShootProjectile(position2, new Vector3(0.3f, 1, 0) * 3);
 		primarySkill.ShootProjectile(position2, new Vector3(-0.3f, 1, 0) * 3);
+
+		
 	}
 }
 
@@ -88,6 +94,8 @@ public class Level5Weapon : Weapon
 
 			primarySkill.ShootProjectile(position, direction);
 		}
+
+		
 	}
 }
 
@@ -114,6 +122,8 @@ public class Level6Weapon : Weapon
 			Vector3 offsetNegativeX = new Vector3(0, x, 0); // 이 위치에서 발사
 			primarySkill.ShootProjectile(position + offsetNegativeX, directionNegativeX);
 		}
+
+	
 	}
 }
 
@@ -159,6 +169,8 @@ public class PrimarySkill : BaseSkill
 		{
 			projectile.MoveSpeed = ProjectileMoveSpeed; // 현재의 MoveSpeed에 ProjectileMoveSpeed 값을 참조시킴
 			projectile.SetDirection(direction.normalized); // 방향을 정해서 표준화 시킴
+			SoundManager.instance.PlaySFX("Shoot");
 		}
+
 	}
 }

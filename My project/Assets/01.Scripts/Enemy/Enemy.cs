@@ -12,17 +12,12 @@ public class Enemy : MonoBehaviour
 
 	public GameObject ExplodeFX;
 
-
-
-	private void Update()
-	{
-		
-	}
-
 	public void Dead()
 	{
 		if (!bIsDead)
 		{
+			SoundManager.instance.PlaySFX("Explosion");
+
 			if (!bMustSpawnItem)
 			{
 				GameManager.Instance.ItemManager.SpawnRandomItem(0, 3, transform.position);
