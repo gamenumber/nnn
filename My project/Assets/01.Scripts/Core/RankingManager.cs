@@ -29,7 +29,8 @@ public class RankingManager : MonoBehaviour
         SetCurrentScore();
         SortRanking();
         UpdateRankingUI();
-         
+        GameInstance.instance = null;
+        
     }
 
     public void MainMenu()
