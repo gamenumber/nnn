@@ -12,6 +12,7 @@ TagManager:
   - BossB
   - Background
   - Item
+  - Thunder
   layers:
   - Default
   - TransparentFX

@@ -230,11 +230,17 @@ MonoBehaviour:
     Clip: {fileID: 8300000, guid: 524fb3698f9864ea4a953e57aefc11ad, type: 3}
   - Name: Shoot
     Clip: {fileID: 8300000, guid: 9a0f09a1a65c449288e7b9593b109cbf, type: 3}
+  - Name: PlayerDie
+    Clip: {fileID: 8300000, guid: adcbbbae313cb40978e30faf82938987, type: 3}
+  - Name: Wind
+    Clip: {fileID: 8300000, guid: ee0e6aabfd7cb5d45b24dab590126b83, type: 3}
   BgmSounds:
   - Name: BGM1
     Clip: {fileID: 8300000, guid: 1c64bd3a6ecc5c4409e8aa874c7315bf, type: 3}
   AudioSourceBgm: {fileID: 0}
   AudioSourceSFX:
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}

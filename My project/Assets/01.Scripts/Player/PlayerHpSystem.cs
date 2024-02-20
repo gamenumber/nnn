@@ -33,6 +33,36 @@ public class PlayerHpSystem : MonoBehaviour
 		}
 	}
 
+	IEnumerator HitFlick2()
+	{
+		int flickCount = 0;
+
+		while (flickCount < 5)
+		{
+			GetComponent<SpriteRenderer>().color = Color.yellow;
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = Color.yellow;
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = Color.yellow;
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = Color.yellow;
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = Color.yellow;
+			yield return new WaitForSeconds(0.1f);
+			GetComponent<SpriteRenderer>().color = new Color(1, 1, 1, 1);
+			yield return new WaitForSeconds(0.1f);
+			flickCount++;
+		}
+	}
+
 	private void OnTriggerEnter2D(Collider2D collision)
 	{
 		if (collision.gameObject.CompareTag("Enemy"))
@@ -53,6 +83,19 @@ public class PlayerHpSystem : MonoBehaviour
 			SoundManager.instance.PlaySFX("Hit");
 			Health -= 1;
 			StartCoroutine(HitFlick());
+			Destroy(collision.gameObject);
+
+			if (Health <= 0)
+			{
+				GameManager.Instance.GetPlayerCharacter().DeadProcess();
+			}
+		}
+
+		if (collision.gameObject.CompareTag("Thunder"))
+		{
+			SoundManager.instance.PlaySFX("HitLightning");
+			Health -= 1;
+			StartCoroutine(HitFlick2());
 			Destroy(collision.gameObject);
 
 			if (Health <= 0)

@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 8433019187120845851, guid: 0da5f89547dcafd40af8f97efab27b2d, type: 3}
     - target: {fileID: 4420394538228637364, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
       propertyPath: Health
-      value: 200
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 6793655888628796176, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
       propertyPath: m_Name
@@ -65,12 +65,24 @@ PrefabInstance:
       value: 2.75
       objectReference: {fileID: 0}
     - target: {fileID: 9202094345309311620, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202094345309311620, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202094345309311620, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202094345309311620, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.0166
       objectReference: {fileID: 0}
     - target: {fileID: 9202094345309311620, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.8658
       objectReference: {fileID: 0}
     - target: {fileID: 9202094345309311620, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
       propertyPath: m_LocalPosition.z
@@ -104,6 +116,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9202094345309311620, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7581511176312928798, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
     m_RemovedGameObjects: []
@@ -130,10 +146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86170f485ad8f4e438f4f86da34ed5f4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Projectile: {fileID: 6692036551824603983, guid: d4e9bfe131da27d45bceeea9ff26efe3, type: 3}
-  ProjectileMoveSpeed: 5
-  FireRate: 2
+  WindPrefab: {fileID: 5337534396992041896, guid: e7287fa7c77b8a2419f0bc0a55b49881, type: 3}
+  LightningPrefab: {fileID: 8416211405036006267, guid: 9f1fb2c1fc4dd6749b88345e9cf4ba82, type: 3}
+  initialWindSpeed: 5
+  windChangeInterval: 2
+  horizontalForce: 2
   MoveSpeed: 2
-  MoveDistance: 5
-  AddOnItem: {fileID: 7639920687526483669, guid: 13a9c5cf5089b954f8f7117decd673ef, type: 3}
-  mini: {fileID: 6719639032203357413, guid: 3f0cd2bc0e8d68844b9de756822ffe0f, type: 3}
+  FireRate: 2
