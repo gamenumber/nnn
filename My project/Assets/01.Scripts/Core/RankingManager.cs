@@ -29,9 +29,9 @@ public class RankingManager : MonoBehaviour
         SetCurrentScore();
         SortRanking();
         UpdateRankingUI();
-        GameInstance.instance = null;
-        
-    }
+
+		GameManager.Instance.InitInstance();
+	}
 
     public void MainMenu()
     {
@@ -42,6 +42,7 @@ public class RankingManager : MonoBehaviour
     {
 		SceneManager.LoadScene("MainMenu");
         GameManager.Instance.InitInstance();
+      
 	}
 
     public void MainMenuRanking()

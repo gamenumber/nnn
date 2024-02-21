@@ -60,6 +60,7 @@ public class GameManager : MonoBehaviour
 		GameInstance.instance.CurrentPlayerHP = 1000;
 		GameInstance.instance.CurrentPlayerFuel = 100f;
 		GameInstance.instance.CurrentPlayerAddOnCount = 0;
+		//GameInstance.instance = null;
 	}
 
 	public void GameStart()
