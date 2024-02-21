@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq.Expressions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class BossB : MonoBehaviour
 	public GameObject DarkMeteor;
 
 	public float IsDarkTime = 20f;
+
+	private float PatternTime = 5f;
 
 	public float initialWindSpeed = 5f;
 	public float windChangeInterval = 2f;
@@ -91,7 +94,7 @@ public class BossB : MonoBehaviour
 		ApplyHorizontalForce();
 
 		// Wait for a duration before completing the pattern
-		yield return new WaitForSeconds(5.0f); // Adjust this duration as needed
+		yield return new WaitForSeconds(PatternTime); // Adjust this duration as needed
 
 		// Stop invoking AdjustWindDirection when needed (optional)
 		CancelInvoke("AdjustWindDirection");
@@ -144,7 +147,7 @@ public class BossB : MonoBehaviour
 		// For now, it's empty; you can add your actions here
 
 		// Wait for a duration before completing the pattern
-		yield return new WaitForSeconds(1f); // Adjust this duration as needed
+		yield return new WaitForSeconds(PatternTime); // Adjust this duration as needed
 
 		// Set _isPatternInProgress to false to allow starting the next pattern
 		_isPatternInProgress = false;
@@ -154,16 +157,13 @@ public class BossB : MonoBehaviour
 	private IEnumerator Pattern3()
 	{
 		_isPatternInProgress = true;
-		
-
-		for (int i = 0; i < 3; i++)
+		for (int i = 0; i < 5; i++)
 		{
-			
 			StartCoroutine(LightningAppear());
 		}
 
 		// Wait for a duration before completing the pattern
-		yield return new WaitForSeconds(3.0f); // Adjust this duration as needed
+		yield return new WaitForSeconds(PatternTime); // Adjust this duration as needed
 
 		// Set _isPatternInProgress to false to allow starting the next pattern
 		_isPatternInProgress = false;
@@ -173,8 +173,6 @@ public class BossB : MonoBehaviour
 
 	private IEnumerator LightningAppear()
 	{
-
-		
 		// Instantiate danger object at a random position within boss's range
 		Vector3 randomPosition = new Vector3(
 			Random.Range(transform.position.x - 7f, transform.position.x + 7f),
@@ -198,7 +196,10 @@ public class BossB : MonoBehaviour
 	}
 
 	private IEnumerator Pattern4()
-	{
+	{ 
+		yield return new WaitForSeconds(IsDarkTime);
+		PatternTime = -4f;
+		SoundManager.instance.PlaySFX("DarkMeteor");
 		SoundManager.instance.PlayBGM("BGM2");
 		// 화면을 어둡게 만드는 효과 실행
 		ImageFadeInOut.Instance.IsDark();
@@ -209,7 +210,6 @@ public class BossB : MonoBehaviour
 
 		for (int i = 0; i < numberOfMeteors; i++)
 		{
-			SoundManager.instance.PlaySFX("DarkMeteor");
 			// 화면 상단의 랜덤 위치에 DarkMeteor를 생성
 			Vector3 spawnPosition = new Vector3(Random.Range(-5f, 5f), 10f, 0f);
 			GameObject darkMeteor = Instantiate(DarkMeteor, spawnPosition, Quaternion.identity);
