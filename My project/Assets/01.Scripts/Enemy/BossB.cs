@@ -8,7 +8,7 @@ public class BossB : MonoBehaviour
 	public GameObject WindPrefab; // Reference to the wind prefab
 	public GameObject LightningPrefab;
 	public GameObject Danger;
-	public Image imageToFade;  // 이곳에 페이드를 적용할 UI Image를 지정해주세요.
+
 
 
 	public float initialWindSpeed = 5f;
@@ -27,9 +27,6 @@ public class BossB : MonoBehaviour
 
 	private void Start()
 	{
-		GameObject canvas = GameObject.Find("Lightning");
-		imageToFade = canvas.transform.Find("Image").GetComponent<Image>();
-		StartCoroutine(FadeInOut());
 		_originPosition = transform.position;
 		StartCoroutine(MoveDownAndStartPattern());
 	}
@@ -156,6 +153,7 @@ public class BossB : MonoBehaviour
 	private IEnumerator Pattern3()
 	{
 		_isPatternInProgress = true;
+		
 
 		for (int i = 0; i < 3; i++)
 		{
@@ -178,9 +176,10 @@ public class BossB : MonoBehaviour
 			Random.Range(transform.position.y - 8f, transform.position.y),
 			0f
 		);
+		ImageFadeInOut.Instance.StartFade();
 
 		GameObject dangerInstance = Instantiate(Danger, randomPosition, Quaternion.identity);
-		yield return new WaitForSeconds(1f);
+		yield return new WaitForSeconds(0.4f);
 
 		Destroy(dangerInstance); // Destroy the Danger object after waiting
 
@@ -192,30 +191,6 @@ public class BossB : MonoBehaviour
 
 		yield return null;
 	}
-
-	private IEnumerator FadeInOut()
-	{
-		// Fade In
-		for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / 1.5f) // 이곳에서 시간을 조정하실 수 있습니다.
-		{
-			imageToFade.color = new Color(imageToFade.color.r, imageToFade.color.g, imageToFade.color.b, Mathf.Lerp(0, 1, t));
-			yield return null;
-		}
-
-		// 일정 시간을 기다린 후
-		yield return new WaitForSeconds(1.0f); // 이곳에서 기다리는 시간을 조정하실 수 있습니다.
-
-		// Fade Out
-		for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / 1.5f) // 이곳에서 시간을 조정하실 수 있습니다.
-		{
-			imageToFade.color = new Color(imageToFade.color.r, imageToFade.color.g, imageToFade.color.b, Mathf.Lerp(1, 0, t));
-			yield return null;
-		}
-	}
-
-
-
-
 
 	private void OnDestroy()
 	{
