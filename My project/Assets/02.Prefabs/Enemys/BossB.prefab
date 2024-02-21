@@ -30,7 +30,7 @@ PrefabInstance:
       objectReference: {fileID: 8433019187120845851, guid: 0da5f89547dcafd40af8f97efab27b2d, type: 3}
     - target: {fileID: 4420394538228637364, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
       propertyPath: Health
-      value: 1000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 6793655888628796176, guid: 8f3e42276708c2a4e8ef2b8ba5b05f45, type: 3}
       propertyPath: m_Name
@@ -148,6 +148,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WindPrefab: {fileID: 5337534396992041896, guid: e7287fa7c77b8a2419f0bc0a55b49881, type: 3}
   LightningPrefab: {fileID: 8416211405036006267, guid: 9f1fb2c1fc4dd6749b88345e9cf4ba82, type: 3}
+  Danger: {fileID: 4584532623223504687, guid: 29271094961b7684fa4937a2c6009f69, type: 3}
+  imageToFade: {fileID: 0}
   initialWindSpeed: 5
   windChangeInterval: 2
   horizontalForce: 2

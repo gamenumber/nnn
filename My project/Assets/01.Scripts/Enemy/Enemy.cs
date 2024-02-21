@@ -87,7 +87,6 @@ public class Enemy : MonoBehaviour
 
 	private void OnDestroy()
 	{
-		
 		Instantiate(ExplodeFX, transform.position, Quaternion.identity);
 		GameManager.Instance.AddScore(10);
 		

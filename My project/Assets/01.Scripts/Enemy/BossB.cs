@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossB : MonoBehaviour
 {
 	public GameObject WindPrefab; // Reference to the wind prefab
 	public GameObject LightningPrefab;
+	public GameObject Danger;
+	public Image imageToFade;  // 이곳에 페이드를 적용할 UI Image를 지정해주세요.
+
 
 	public float initialWindSpeed = 5f;
 	public float windChangeInterval = 2f;
@@ -23,6 +27,9 @@ public class BossB : MonoBehaviour
 
 	private void Start()
 	{
+		GameObject canvas = GameObject.Find("Lightning");
+		imageToFade = canvas.transform.Find("Image").GetComponent<Image>();
+		StartCoroutine(FadeInOut());
 		_originPosition = transform.position;
 		StartCoroutine(MoveDownAndStartPattern());
 	}
@@ -148,21 +155,12 @@ public class BossB : MonoBehaviour
 
 	private IEnumerator Pattern3()
 	{
-		
 		_isPatternInProgress = true;
 
-		// Spawn lightning objects
 		for (int i = 0; i < 3; i++)
 		{
-			SoundManager.instance.PlaySFX("Lightning");
-			// Instantiate lightning prefab at random position within boss's range
-			Vector3 randomPosition = new Vector3(
-				Random.Range(transform.position.x - 8f, transform.position.x + 8f),
-				Random.Range(transform.position.y - 8f, transform.position.y + 0.1f),
-				0f
-			);
-
-			Instantiate(LightningPrefab, randomPosition, Quaternion.identity);
+			
+			StartCoroutine(LightningAppear());
 		}
 
 		// Wait for a duration before completing the pattern
@@ -171,6 +169,53 @@ public class BossB : MonoBehaviour
 		// Set _isPatternInProgress to false to allow starting the next pattern
 		_isPatternInProgress = false;
 	}
+
+	private IEnumerator LightningAppear()
+	{
+		// Instantiate danger object at a random position within boss's range
+		Vector3 randomPosition = new Vector3(
+			Random.Range(transform.position.x - 7f, transform.position.x + 7f),
+			Random.Range(transform.position.y - 8f, transform.position.y),
+			0f
+		);
+
+		GameObject dangerInstance = Instantiate(Danger, randomPosition, Quaternion.identity);
+		yield return new WaitForSeconds(1f);
+
+		Destroy(dangerInstance); // Destroy the Danger object after waiting
+
+		yield return new WaitForSeconds(0.4f);
+		SoundManager.instance.PlaySFX("Lightning");
+
+		// Instantiate lightning prefab at the same random position
+		Instantiate(LightningPrefab, randomPosition, Quaternion.identity);
+
+		yield return null;
+	}
+
+	private IEnumerator FadeInOut()
+	{
+		// Fade In
+		for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / 1.5f) // 이곳에서 시간을 조정하실 수 있습니다.
+		{
+			imageToFade.color = new Color(imageToFade.color.r, imageToFade.color.g, imageToFade.color.b, Mathf.Lerp(0, 1, t));
+			yield return null;
+		}
+
+		// 일정 시간을 기다린 후
+		yield return new WaitForSeconds(1.0f); // 이곳에서 기다리는 시간을 조정하실 수 있습니다.
+
+		// Fade Out
+		for (float t = 0.0f; t < 1.0f; t += Time.deltaTime / 1.5f) // 이곳에서 시간을 조정하실 수 있습니다.
+		{
+			imageToFade.color = new Color(imageToFade.color.r, imageToFade.color.g, imageToFade.color.b, Mathf.Lerp(1, 0, t));
+			yield return null;
+		}
+	}
+
+
+
+
 
 	private void OnDestroy()
 	{

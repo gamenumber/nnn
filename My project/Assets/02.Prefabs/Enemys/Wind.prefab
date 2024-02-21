@@ -161,4 +161,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebef065cf13b3a441b637d1f1046794d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  windForce: 5
+  windForce: 15
