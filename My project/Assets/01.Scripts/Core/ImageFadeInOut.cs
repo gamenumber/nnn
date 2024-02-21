@@ -8,6 +8,7 @@ public class ImageFadeInOut : MonoBehaviour
 	public static ImageFadeInOut Instance;
 
 	public Image imageToFade;
+	public Image Dark;
 
 	void Awake()
 	{
@@ -25,6 +26,12 @@ public class ImageFadeInOut : MonoBehaviour
 	void Start()
 	{
 		
+	}
+
+
+	public void IsDark()
+	{
+		Dark.gameObject.SetActive(true);
 	}
 
 	public void StartFade()

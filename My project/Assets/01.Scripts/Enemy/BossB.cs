@@ -8,7 +8,7 @@ public class BossB : MonoBehaviour
 	public GameObject WindPrefab; // Reference to the wind prefab
 	public GameObject LightningPrefab;
 	public GameObject Danger;
-
+	public GameObject DarkMeteor;
 
 
 	public float initialWindSpeed = 5f;
@@ -190,6 +190,33 @@ public class BossB : MonoBehaviour
 		Instantiate(LightningPrefab, randomPosition, Quaternion.identity);
 
 		yield return null;
+	}
+
+	private IEnumerator Pattern4()
+	{
+		// 화면을 어둡게 만드는 효과 실행
+		ImageFadeInOut.Instance.IsDark();
+		yield return new WaitForSeconds(0.5f);
+
+		// 1에서 5개의 DarkMeteor를 랜덤으로 생성
+		int numberOfMeteors = Random.Range(1, 6);
+
+		for (int i = 0; i < numberOfMeteors; i++)
+		{
+			// 화면 상단의 랜덤 위치에 DarkMeteor를 생성
+			Vector3 spawnPosition = new Vector3(Random.Range(-5f, 5f), 10f, 0f);
+			GameObject darkMeteor = Instantiate(DarkMeteor, spawnPosition, Quaternion.identity);
+
+			// Rigidbody2D 컴포넌트를 얻어 속도를 랜덤으로 적용
+			Rigidbody2D darkMeteorRb = darkMeteor.GetComponent<Rigidbody2D>();
+			darkMeteorRb.gravityScale = 0; // 중력을 0으로 설정하여 수직 방향으로만 이동
+			float randomSpeed = Random.Range(initialWindSpeed, initialWindSpeed * 2f); // 랜덤한 속도
+			darkMeteorRb.velocity = Vector2.down * randomSpeed; // 아래로만 이동
+
+			yield return new WaitForSeconds(0.1f); // 각 DarkMeteor 생성 간의 지연 시간
+		}
+
+		yield return null; // Coroutine 종료
 	}
 
 	private void OnDestroy()

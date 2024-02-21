@@ -149,7 +149,7 @@ MonoBehaviour:
   WindPrefab: {fileID: 5337534396992041896, guid: e7287fa7c77b8a2419f0bc0a55b49881, type: 3}
   LightningPrefab: {fileID: 8416211405036006267, guid: 9f1fb2c1fc4dd6749b88345e9cf4ba82, type: 3}
   Danger: {fileID: 4584532623223504687, guid: 29271094961b7684fa4937a2c6009f69, type: 3}
-  imageToFade: {fileID: 0}
+  DarkMeteor: {fileID: 5820057191113249862, guid: 5137f77dfdff17240bd40a6cc5aa8a95, type: 3}
   initialWindSpeed: 5
   windChangeInterval: 2
   horizontalForce: 2
