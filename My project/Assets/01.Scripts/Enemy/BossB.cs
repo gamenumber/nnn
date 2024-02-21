@@ -10,6 +10,7 @@ public class BossB : MonoBehaviour
 	public GameObject Danger;
 	public GameObject DarkMeteor;
 
+	public float IsDarkTime = 20f;
 
 	public float initialWindSpeed = 5f;
 	public float windChangeInterval = 2f;
@@ -166,10 +167,14 @@ public class BossB : MonoBehaviour
 
 		// Set _isPatternInProgress to false to allow starting the next pattern
 		_isPatternInProgress = false;
+
+		StartCoroutine(Pattern4());
 	}
 
 	private IEnumerator LightningAppear()
 	{
+
+		
 		// Instantiate danger object at a random position within boss's range
 		Vector3 randomPosition = new Vector3(
 			Random.Range(transform.position.x - 7f, transform.position.x + 7f),
@@ -194,6 +199,7 @@ public class BossB : MonoBehaviour
 
 	private IEnumerator Pattern4()
 	{
+		SoundManager.instance.PlayBGM("BGM2");
 		// 화면을 어둡게 만드는 효과 실행
 		ImageFadeInOut.Instance.IsDark();
 		yield return new WaitForSeconds(0.5f);
@@ -203,6 +209,7 @@ public class BossB : MonoBehaviour
 
 		for (int i = 0; i < numberOfMeteors; i++)
 		{
+			SoundManager.instance.PlaySFX("DarkMeteor");
 			// 화면 상단의 랜덤 위치에 DarkMeteor를 생성
 			Vector3 spawnPosition = new Vector3(Random.Range(-5f, 5f), 10f, 0f);
 			GameObject darkMeteor = Instantiate(DarkMeteor, spawnPosition, Quaternion.identity);

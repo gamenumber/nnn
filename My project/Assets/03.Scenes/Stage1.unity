@@ -5110,6 +5110,14 @@ PrefabInstance:
       propertyPath: SFXSounds.Array.data[8].Name
       value: HitLightning
       objectReference: {fileID: 0}
+    - target: {fileID: 4746585156413560582, guid: 0da5f89547dcafd40af8f97efab27b2d, type: 3}
+      propertyPath: SFXSounds.Array.data[9].Clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c3e84a3d243def643adbd5311a824916, type: 3}
+    - target: {fileID: 4746585156413560582, guid: 0da5f89547dcafd40af8f97efab27b2d, type: 3}
+      propertyPath: SFXSounds.Array.data[9].Name
+      value: HitLightning
+      objectReference: {fileID: 0}
     - target: {fileID: 7002259513271255168, guid: 0da5f89547dcafd40af8f97efab27b2d, type: 3}
       propertyPath: TimeText
       value: 
