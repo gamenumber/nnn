@@ -4,14 +4,13 @@ using UnityEngine;
 
 public class Trigger : MonoBehaviour
 {
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D other)
 	{
-		if (collision != null)
+		if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "EnemyBullet")
 		{
-			if (!collision.CompareTag("Player") && !collision.CompareTag("Item") && !collision.CompareTag("BossA") && !collision.CompareTag("BossB"))
-			{
-				Destroy(collision.gameObject);
-			}
+			Destroy(other.gameObject);
 		}
+
 	}
+
 }
