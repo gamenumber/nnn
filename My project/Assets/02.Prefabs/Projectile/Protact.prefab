@@ -8,6 +8,18 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5549313707310069362, guid: 9736252f1fad55645b1f26a0d52b5591, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549313707310069362, guid: 9736252f1fad55645b1f26a0d52b5591, type: 3}
+      propertyPath: m_Color.g
+      value: 0.30938816
+      objectReference: {fileID: 0}
+    - target: {fileID: 5549313707310069362, guid: 9736252f1fad55645b1f26a0d52b5591, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8649401617408623095, guid: 9736252f1fad55645b1f26a0d52b5591, type: 3}
       propertyPath: m_Name
       value: Protact
