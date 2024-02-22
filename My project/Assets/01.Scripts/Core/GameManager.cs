@@ -54,13 +54,13 @@ public class GameManager : MonoBehaviour
 	public void InitInstance()
 	{
 		GameInstance.instance.GameStartTime = 0f;
-		//GameInstance.instance.Score = 0;
+		GameInstance.instance.Score = 0;
 		GameInstance.instance.CurrentStageLevel = 1;
 		GameInstance.instance.CurrentPlayerWeaponLevel = 0;
 		GameInstance.instance.CurrentPlayerHP = 1000;
 		GameInstance.instance.CurrentPlayerFuel = 100f;
 		GameInstance.instance.CurrentPlayerAddOnCount = 0;
-		//GameInstance.instance = null;
+		GameInstance.instance = null;
 	}
 
 	public void GameStart()
